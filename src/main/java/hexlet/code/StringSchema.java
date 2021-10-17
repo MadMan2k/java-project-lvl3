@@ -3,11 +3,16 @@ package hexlet.code;
 public class StringSchema {
     private static int requiredState = 0;
     private static String containsState;
-
+    /**
+     *
+     */
     public void required() {
         requiredState = 1;
     }
-
+    /**
+     * @return Boolean
+     * @param s is input String
+     */
     public boolean isValid(String s) {
         if (requiredState == 0 && containsState == null) {
             return true;
@@ -20,7 +25,10 @@ public class StringSchema {
         }
         return false;
     }
-
+    /**
+     * @return StringSchema
+     * @param s is input String
+     */
     public StringSchema contains(String s) {
         containsState = s;
         return this;
