@@ -41,12 +41,15 @@ test {
   finalizedBy jacocoTestReport
 }
 
-testlogger {
-  showStandardStreams true
-}
+//testlogger {
+//  showStandardStreams true
+//}
 
 jacocoTestReport {
   dependsOn test
+  reports {
+    xml.enabled true
+  }
 }
 
 checkstyle {
