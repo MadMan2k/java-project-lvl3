@@ -21,5 +21,7 @@ public class ValidatorTest {
 
         assertThat(schema.contains("what").isValid("what does the fox say")).isEqualTo(true);
         assertThat(schema.contains("whatthe").isValid("what does the fox say")).isEqualTo(false);
+        assertThat(schema.minLength(6).isValid("hexlet")).isEqualTo(true);
+        assertThat(schema.minLength(6).isValid("hex")).isEqualTo(false);
     }
 }

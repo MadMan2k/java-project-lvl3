@@ -17,6 +17,9 @@ public class App {
 //
 //        System.out.println(schema.contains("what").isValid("what does the fox say")); //true
 //        System.out.println(schema.contains("whatthe").isValid("what does the fox say")); //false
+//
+//        System.out.println(schema.minLength(6).isValid("hexlet")); //true
+//        System.out.println(schema.minLength(6).isValid("Hex")); //false
 
     }
 }
