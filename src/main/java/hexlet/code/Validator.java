@@ -12,6 +12,9 @@ public class Validator {
         return new StringSchema();
     }
 
+    /**
+     * @return NumberSchema
+     */
     public NumberSchema number() {
         return new NumberSchema();
     }
