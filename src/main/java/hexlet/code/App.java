@@ -9,7 +9,6 @@ public class App {
 //        System.out.println(schema.isValid(null)); //true
 //
 //        schema.required();
-//
 //        System.out.println(schema.isValid("what does the fox say")); // true
 //        System.out.println(schema.isValid("hexlet")); // true
 //        System.out.println(schema.isValid(null)); // false

@@ -1,45 +1,43 @@
 package hexlet.code;
 
+import java.util.function.Predicate;
+
 public class StringSchema {
     private static int requiredState = 0;
     private static String containsState;
     private static int minLengthState = 0;
+
     /**
-     *
+     * turn on notNullNorEmpty check
      */
     public void required() {
         requiredState = 1;
     }
+
     /**
      * @return Boolean
      * @param s is input String
      */
     public boolean isValid(String s) {
-        if (requiredState == 0 && containsState == null && minLengthState == 0) {
-            return true;
+        if (requiredState != 0 && containsState == null && minLengthState == 0) {
+            Predicate<String> notNullNorEmpty = p -> p != null && !p.isEmpty();
+            return notNullNorEmpty.test(s);
         }
-        if (requiredState == 1 && s != null && containsState == null && minLengthState == 0) {
-            return s.length() > 0;
+
+        if (containsState != null) {
+            Predicate<String> contain = p -> p.contains(containsState);
+            boolean containResult = contain.test(s);
+            containsState = null;
+            return containResult;
         }
-        if (containsState != null && s != null) {
-            if (s.contains(containsState)) {
-                containsState = null;
-                return true;
-            } else {
-                containsState = null;
-                return false;
-            }
+
+        if (minLengthState != 0) {
+            Predicate<Integer> minLength = p -> p >= minLengthState;
+            boolean minLengthResult = minLength.test(s.length());
+            minLengthState = 0;
+            return minLengthResult;
         }
-        if (minLengthState != 0 && s != null) {
-            if (s.length() >= minLengthState) {
-                minLengthState = 0;
-                return true;
-            } else {
-                minLengthState = 0;
-                return false;
-            }
-        }
-        return false;
+        return true;
     }
 
     /**
