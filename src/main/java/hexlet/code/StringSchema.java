@@ -8,7 +8,7 @@ public class StringSchema {
     private static int minLengthState = 0;
 
     /**
-     * turn on notNullNorEmpty check
+     * turn on notNullNorEmpty check.
      */
     public void required() {
         requiredState = 1;
