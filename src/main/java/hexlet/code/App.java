@@ -3,6 +3,27 @@ package hexlet.code;
 public class App {
     public static void main(String[] args) {
 //        Validator v = new Validator();
+//        NumberSchema schema = v.number();
+//
+//        System.out.println(schema.isValid(null)); // true
+//
+//        schema.required();
+//
+//        System.out.println(schema.isValid(null)); // false
+//        System.out.println(schema.isValid(10)); // true
+//        System.out.println(schema.isValid("5")); // false
+//
+//        System.out.println(schema.positive().isValid(10)); // true
+//        System.out.println(schema.isValid(-10)); // false
+//
+//        schema.range(5, 10);
+//
+//        System.out.println(schema.isValid(5)); // true
+//        System.out.println(schema.isValid(10)); // true
+//        System.out.println(schema.isValid(4)); // false
+//        System.out.println(schema.isValid(11)); // false
+
+//        Validator v = new Validator();
 //        StringSchema schema = v.string();
 //
 //        System.out.println(schema.isValid("")); //true
