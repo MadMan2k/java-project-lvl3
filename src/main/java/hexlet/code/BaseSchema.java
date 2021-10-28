@@ -6,6 +6,8 @@ import lombok.Data;
 public abstract class BaseSchema {
     private int requiredState;
 
+//    public abstract boolean isValid(Object o);
+
     /**
      * turn on required.
      */
