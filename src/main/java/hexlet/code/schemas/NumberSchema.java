@@ -24,11 +24,11 @@ public class NumberSchema extends BaseSchema {
             return false;
         }
 
-        if (positiveState != 0) {
+        if (positiveState == 1) {
             result = result.and(isPositive);
         }
 
-        if (rangeState != 0) {
+        if (rangeState == 1) {
             result = result.and(isInRange);
         }
 
