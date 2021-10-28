@@ -2,19 +2,19 @@ package hexlet.code;
 
 import java.util.function.Predicate;
 
-public class NumberSchema {
-    private static int requiredState = 0;
+public class NumberSchema extends BaseSchema {
+//    private static int requiredState = 0;
     private static int positiveState = 0;
     private static int rangeState = 0;
     private static int lowerBoundOfRange = 0;
     private static int upperBoundOfRange = 0;
 
-    /**
-     * turn on notNullNorEmpty check.
-     */
-    public void required() {
-        requiredState = 1;
-    }
+//    /**
+//     * turn on notNullNorEmpty check.
+//     */
+//    public void required() {
+//        requiredState = 1;
+//    }
 
     /**
      * @return NumberSchema
@@ -41,7 +41,7 @@ public class NumberSchema {
      * @return check result
      */
     public boolean isValid(int i) {
-        if (requiredState != 0 && positiveState == 0 && rangeState == 0) {
+        if (super.getRequiredState() != 0 && positiveState == 0 && rangeState == 0) {
             return true;
         }
 
@@ -62,7 +62,7 @@ public class NumberSchema {
      * @return return true if no any checks added
      */
     public boolean isValid(Object o) {
-        return requiredState == 0;
+        return super.getRequiredState() == 0;
     }
 
 }

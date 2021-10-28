@@ -2,24 +2,24 @@ package hexlet.code;
 
 import java.util.function.Predicate;
 
-public class StringSchema {
-    private static int requiredState = 0;
+public class StringSchema extends BaseSchema {
+//    private static int requiredState = 0;
     private static String containsState;
     private static int minLengthState = 0;
 
-    /**
-     * turn on notNullNorEmpty check.
-     */
-    public void required() {
-        requiredState = 1;
-    }
+//    /**
+//     * turn on notNullNorEmpty check.
+//     */
+//    public void required() {
+//        requiredState = 1;
+//    }
 
     /**
      * @return Boolean
      * @param s is input String
      */
     public boolean isValid(String s) {
-        if (requiredState != 0 && containsState == null && minLengthState == 0) {
+        if (super.getRequiredState() != 0 && containsState == null && minLengthState == 0) {
             Predicate<String> notNullNorEmpty = p -> p != null && !p.isEmpty();
             return notNullNorEmpty.test(s);
         }
