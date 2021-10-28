@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 public class StringSchema extends BaseSchema {
 //    private static int requiredState = 0;
     private static String containsState;
-    private static int minLengthState = 0;
+    private static int minLengthState;
 
 //    /**
 //     * turn on notNullNorEmpty check.

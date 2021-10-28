@@ -4,10 +4,10 @@ import java.util.function.Predicate;
 
 public class NumberSchema extends BaseSchema {
 //    private static int requiredState = 0;
-    private static int positiveState = 0;
-    private static int rangeState = 0;
-    private static int lowerBoundOfRange = 0;
-    private static int upperBoundOfRange = 0;
+    private static int positiveState;
+    private static int rangeState;
+    private static int lowerBoundOfRange;
+    private static int upperBoundOfRange;
 
 //    /**
 //     * turn on notNullNorEmpty check.
