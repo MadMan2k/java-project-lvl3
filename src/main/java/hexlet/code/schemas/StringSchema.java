@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.schemas;
 
 import java.util.function.Predicate;
 
@@ -13,7 +13,7 @@ public class StringSchema extends BaseSchema {
      * @param o is input String
      */
     @Override
-    public boolean isValidRequired(Object o) {
+    protected boolean isValidRequired(Object o) {
         Predicate<Object> notNullNorEmpty = p -> p != null && !p.toString().isEmpty();
         Predicate<Object> isLongerThan = p -> p.toString().length() >= minLength;
         Predicate<Object> contain = p -> p.toString().contains(contains);

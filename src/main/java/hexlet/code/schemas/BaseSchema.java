@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.schemas;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import lombok.Data;
 public abstract class BaseSchema {
     private int requiredState;
 
-    public abstract boolean isValidRequired(Object o);
+    protected abstract boolean isValidRequired(Object o);
 
     /**
      * @param o input value
@@ -24,6 +24,6 @@ public abstract class BaseSchema {
      * turn on required.
      */
     public void required() {
-        this.setRequiredState(1);
+        requiredState = 1;
     }
 }

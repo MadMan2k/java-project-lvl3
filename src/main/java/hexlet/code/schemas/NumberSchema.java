@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.schemas;
 
 import java.util.function.Predicate;
 
@@ -13,7 +13,7 @@ public class NumberSchema extends BaseSchema {
      * @return  check result
      */
     @Override
-    public boolean isValidRequired(Object o) {
+    protected boolean isValidRequired(Object o) {
         Predicate<Object> isInteger = p -> p instanceof Integer;
         Predicate<Object> isPositive = p -> (Integer) p > 0;
         Predicate<Object> isInRange = p -> (Integer) p >= lowerBoundOfRange && (Integer) p <= upperBoundOfRange;
