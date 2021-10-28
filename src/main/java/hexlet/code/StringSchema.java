@@ -3,39 +3,38 @@ package hexlet.code;
 import java.util.function.Predicate;
 
 public class StringSchema extends BaseSchema {
-//    private static int requiredState = 0;
-    private static String containsState;
+    private static int containsState;
+    private static String contains;
     private static int minLengthState;
-
-//    /**
-//     * turn on notNullNorEmpty check.
-//     */
-//    public void required() {
-//        requiredState = 1;
-//    }
+    private static int minLength;
 
     /**
      * @return Boolean
-     * @param s is input String
+     * @param o is input String
      */
-    public boolean isValid(String s) {
-        if (super.getRequiredState() != 0 && containsState == null && minLengthState == 0) {
-            Predicate<String> notNullNorEmpty = p -> p != null && !p.isEmpty();
-            return notNullNorEmpty.test(s);
-        }
+    public boolean isValid(Object o) {
+        Predicate<Object> notNullNorEmpty = p -> p != null && !p.toString().isEmpty();
+        Predicate<Object> isLongerThan = p -> p.toString().length() >= minLength;
+        Predicate<Object> contain = p -> p.toString().contains(contains);
 
-        if (containsState != null) {
-            Predicate<String> contain = p -> p.contains(containsState);
-            boolean containResult = contain.test(s);
-            containsState = null;
-            return containResult;
-        }
+        if (super.getRequiredState() == 1) {
+            Predicate<Object> result = notNullNorEmpty;
 
-        if (minLengthState != 0) {
-            Predicate<Integer> minLength = p -> p >= minLengthState;
-            boolean minLengthResult = minLength.test(s.length());
-            minLengthState = 0;
-            return minLengthResult;
+            if (!result.test(o)) {
+                return false;
+            }
+
+            if (containsState == 1) {
+                result = result.and(contain);
+                containsState = 0;
+            }
+
+            if (minLengthState == 1) {
+                result = result.and(isLongerThan);
+                minLengthState = 0;
+            }
+
+            return result.test(o);
         }
         return true;
     }
@@ -45,7 +44,8 @@ public class StringSchema extends BaseSchema {
      * @param s is input String
      */
     public StringSchema contains(String s) {
-        containsState = s;
+        containsState = 1;
+        contains = s;
         return this;
     }
 
@@ -55,7 +55,8 @@ public class StringSchema extends BaseSchema {
      * @return StringSchema
      */
     public StringSchema minLength(int i) {
-        minLengthState = i;
+        minLength = i;
+        minLengthState = 1;
         return this;
     }
 }
