@@ -12,31 +12,29 @@ public class StringSchema extends BaseSchema {
      * @return Boolean
      * @param o is input String
      */
-    public boolean isValid(Object o) {
+    @Override
+    public boolean isValidRequired(Object o) {
         Predicate<Object> notNullNorEmpty = p -> p != null && !p.toString().isEmpty();
         Predicate<Object> isLongerThan = p -> p.toString().length() >= minLength;
         Predicate<Object> contain = p -> p.toString().contains(contains);
 
-        if (super.getRequiredState() == 1) {
-            Predicate<Object> result = notNullNorEmpty;
+        Predicate<Object> result = notNullNorEmpty;
 
-            if (!result.test(o)) {
-                return false;
-            }
-
-            if (containsState == 1) {
-                result = result.and(contain);
-                containsState = 0;
-            }
-
-            if (minLengthState == 1) {
-                result = result.and(isLongerThan);
-                minLengthState = 0;
-            }
-
-            return result.test(o);
+        if (!result.test(o)) {
+            return false;
         }
-        return true;
+
+        if (containsState == 1) {
+            result = result.and(contain);
+            containsState = 0;
+        }
+
+        if (minLengthState == 1) {
+            result = result.and(isLongerThan);
+            minLengthState = 0;
+        }
+
+        return result.test(o);
     }
 
     /**

@@ -9,6 +9,33 @@ public class NumberSchema extends BaseSchema {
     private static int upperBoundOfRange;
 
     /**
+     * @param o is input
+     * @return  check result
+     */
+    @Override
+    public boolean isValidRequired(Object o) {
+        Predicate<Object> isInteger = p -> p instanceof Integer;
+        Predicate<Object> isPositive = p -> (Integer) p > 0;
+        Predicate<Object> isInRange = p -> (Integer) p >= lowerBoundOfRange && (Integer) p <= upperBoundOfRange;
+
+        Predicate<Object> result = isInteger;
+
+        if (!result.test(o)) {
+            return false;
+        }
+
+        if (positiveState != 0) {
+            result = result.and(isPositive);
+        }
+
+        if (rangeState != 0) {
+            result = result.and(isInRange);
+        }
+
+        return result.test(o);
+    }
+
+    /**
      * @return NumberSchema
      */
     public NumberSchema positive() {
@@ -26,34 +53,5 @@ public class NumberSchema extends BaseSchema {
         lowerBoundOfRange = firstInt;
         upperBoundOfRange = secondInt;
         return this;
-    }
-
-    /**
-     * @param o is input
-     * @return  check result
-     */
-    public boolean isValid(Object o) {
-        Predicate<Object> isInteger = p -> p instanceof Integer;
-        Predicate<Object> isPositive = p -> (Integer) p > 0;
-        Predicate<Object> isInRange = p -> (Integer) p >= lowerBoundOfRange && (Integer) p <= upperBoundOfRange;
-
-        if (super.getRequiredState() == 1) {
-            Predicate<Object> result = isInteger;
-
-            if (!result.test(o)) {
-                return false;
-            }
-
-            if (positiveState != 0) {
-                result = result.and(isPositive);
-            }
-
-            if (rangeState != 0) {
-                result = result.and(isInRange);
-            }
-
-            return result.test(o);
-        }
-        return true;
     }
 }
