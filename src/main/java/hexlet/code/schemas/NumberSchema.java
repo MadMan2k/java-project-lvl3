@@ -40,6 +40,7 @@ public class NumberSchema extends BaseSchema {
      */
     public NumberSchema positive() {
         positiveState = 1;
+        super.setRequiredState(1);
         return this;
     }
 

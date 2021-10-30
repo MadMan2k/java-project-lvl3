@@ -22,8 +22,10 @@ public abstract class BaseSchema {
 
     /**
      * turn on required.
+     * @return BaseSchema
      */
-    public void required() {
+    public BaseSchema required() {
         requiredState = 1;
+        return this;
     }
 }
