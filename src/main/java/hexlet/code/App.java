@@ -74,5 +74,35 @@ public class App {
 //        System.out.print("10 : false - ");
 //        System.out.println(schema.minLength(6).isValid("Hex")); //false
 
+//        Validator v = new Validator();
+//        MapSchema schema = v.map();
+//
+//        System.out.print("1 : true - ");
+//        System.out.println(schema.isValid(null)); // true
+//
+//        schema.required();
+//
+//        System.out.print("2 : false - ");
+//        System.out.println(schema.isValid(null)); // false
+//
+//        System.out.print("3 : true - ");
+//        System.out.println(schema.isValid(new HashMap())); // true
+//
+//        Map<String, String> data = new HashMap<>();
+//        data.put("key1", "value1");
+//
+//        System.out.print("4 : true - ");
+//        System.out.println(schema.isValid(data)); // true
+//
+//        schema.sizeof(2);
+//
+//        System.out.print("5 : false - ");
+//        System.out.println(schema.isValid(data));  // false
+//
+//        data.put("key2", "value2");
+//
+//        System.out.print("6 : true - ");
+//        System.out.println(schema.isValid(data)); // true
+
     }
 }
