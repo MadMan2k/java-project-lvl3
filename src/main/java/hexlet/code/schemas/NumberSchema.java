@@ -10,7 +10,7 @@ public class NumberSchema extends BaseSchema {
 
     /**
      * @param o is input
-     * @return  check result
+     * @return check result
      */
     @Override
     protected boolean isValidRequired(Object o) {

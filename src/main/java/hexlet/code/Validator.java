@@ -22,6 +22,9 @@ public class Validator {
         return new NumberSchema();
     }
 
+    /**
+     * @return MapSchema
+     */
     public MapSchema map() {
         return new MapSchema();
     }

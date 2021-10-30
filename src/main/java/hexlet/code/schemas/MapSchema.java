@@ -3,11 +3,14 @@ package hexlet.code.schemas;
 import java.util.Map;
 import java.util.function.Predicate;
 
-public class MapSchema extends BaseSchema{
+public class MapSchema extends BaseSchema {
     private static int sizeOfState;
     private static int sizeOfTheMap;
 
-
+    /**
+     * @param o input object
+     * @return check result
+     */
     @Override
     protected boolean isValidRequired(Object o) {
         Predicate<Object> isMap = p -> p instanceof Map;
@@ -26,6 +29,10 @@ public class MapSchema extends BaseSchema{
         return result.test(o);
     }
 
+    /**
+     * @param i input size of Map
+     * @return MapSchema
+     */
     public MapSchema sizeof(int i) {
         sizeOfState = 1;
         sizeOfTheMap = i;
