@@ -89,7 +89,7 @@ public class ValidatorTest {
 
         Map<String, Object> human1 = new HashMap<>();
         human1.put("name", "Kolya");
-        human1.put("age", 100);
+        human1.put("age", 1);
         assertThat(schema.isValid(human1)).isEqualTo(true);
 
         Map<String, Object> human2 = new HashMap<>();
@@ -104,7 +104,7 @@ public class ValidatorTest {
 
         Map<String, Object> human4 = new HashMap<>();
         human4.put("name", "Valya");
-        human4.put("age", -5);
+        human4.put("age", -1);
         assertThat(schema.isValid(human4)).isEqualTo(false);
     }
 }
