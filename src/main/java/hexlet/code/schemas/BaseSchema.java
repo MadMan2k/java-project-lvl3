@@ -1,11 +1,24 @@
 package hexlet.code.schemas;
 
-import lombok.Data;
-
-@Data
 public abstract class BaseSchema {
     private int requiredState;
     private int checkState;
+
+    public int getRequiredState() {
+        return requiredState;
+    }
+
+    public int getCheckState() {
+        return checkState;
+    }
+
+    public void setRequiredState(int requiredState) {
+        this.requiredState = requiredState;
+    }
+
+    public void setCheckState(int checkState) {
+        this.checkState = checkState;
+    }
 
     protected abstract boolean isValidRequired(Object o);
 
