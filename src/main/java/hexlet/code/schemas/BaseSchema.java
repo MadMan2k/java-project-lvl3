@@ -4,20 +4,32 @@ public abstract class BaseSchema {
     private int requiredState;
     private int checkState;
 
+    /**
+     * @return Aaaa
+     */
     public int getRequiredState() {
         return requiredState;
     }
 
+    /**
+     * @return Aaaa
+     */
     public int getCheckState() {
         return checkState;
     }
 
-    public void setRequiredState(int requiredState) {
-        this.requiredState = requiredState;
+    /**
+     * @param i
+     */
+    public void setRequiredState(int i) {
+        this.requiredState = i;
     }
 
-    public void setCheckState(int checkState) {
-        this.checkState = checkState;
+    /**
+     * @param i
+     */
+    public void setCheckState(int i) {
+        this.checkState = i;
     }
 
     protected abstract boolean isValidRequired(Object o);
