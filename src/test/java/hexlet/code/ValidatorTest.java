@@ -15,8 +15,10 @@ public class ValidatorTest {
     private static final int MINUS_TEN = -10;
     private static final int FOUR = 4;
     private static final int FIVE = 5;
+    private static final int SEVEN = 7;
     private static final int TEN = 10;
     private static final int ELEVEN = 11;
+    private static final int FIFTEEN = 15;
 
 
 
@@ -114,7 +116,7 @@ public class ValidatorTest {
         StringSchema stringSchema = v.string();
 
         stringSchema.required();
-        stringSchema.minLength(7);
+        stringSchema.minLength(SEVEN);
         assertThat(stringSchema.isValid("hexlet")).isFalse();
 
         NumberSchema numberSchema = v.number();
@@ -134,7 +136,7 @@ public class ValidatorTest {
 
         Map<String, Object> actual6 = new HashMap<>();
         actual6.put("name", "Ada");
-        actual6.put("age", 15);
+        actual6.put("age", FIFTEEN);
         assertThat(mapSchema.isValid(actual6)).isFalse();
     }
 }
