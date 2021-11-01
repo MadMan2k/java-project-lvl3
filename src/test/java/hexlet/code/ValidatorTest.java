@@ -107,4 +107,34 @@ public class ValidatorTest {
         human4.put("age", -1);
         assertThat(schema.isValid(human4)).isEqualTo(false);
     }
+
+    @Test
+    void hexletTest() {
+        Validator v = new Validator();
+        StringSchema stringSchema = v.string();
+
+        stringSchema.required();
+        stringSchema.minLength(7);
+        assertThat(stringSchema.isValid("hexlet")).isFalse();
+
+        NumberSchema numberSchema = v.number();
+        numberSchema.required();
+        assertThat(numberSchema.isValid(null)).isFalse();
+
+        MapSchema mapSchema = v.map();
+
+        mapSchema.required();
+        mapSchema.sizeof(2);
+
+        Map<String, BaseSchema> schemas = new HashMap<>();
+        schemas.put("name", v.string().required().contains("ya"));
+        schemas.put("age", v.number().positive());
+
+        mapSchema.shape(schemas);
+
+        Map<String, Object> actual6 = new HashMap<>();
+        actual6.put("name", "Ada");
+        actual6.put("age", 15);
+        assertThat(mapSchema.isValid(actual6)).isFalse();
+    }
 }
