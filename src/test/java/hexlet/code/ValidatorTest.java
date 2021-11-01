@@ -95,7 +95,7 @@ public class ValidatorTest {
         Map<String, Object> human2 = new HashMap<>();
         human2.put("name", "Maya");
         human2.put("age", null);
-        assertThat(schema.isValid(human2)).isEqualTo(false);
+        assertThat(schema.isValid(human2)).isEqualTo(true);
 
         Map<String, Object> human3 = new HashMap<>();
         human3.put("name", "");

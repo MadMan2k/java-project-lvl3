@@ -5,6 +5,11 @@ public class App {
 //        Validator v = new Validator();
 //        NumberSchema schema = v.number();
 //
+//        System.out.println(schema.positive().isValid(null));
+
+//        System.out.print("0 : true - ");
+//        System.out.println(schema.positive().isValid(null));
+//
 //        System.out.print("1 : true - ");
 //        System.out.println(schema.isValid(null)); // true
 //
@@ -103,7 +108,7 @@ public class App {
 //
 //        System.out.print("6 : true - ");
 //        System.out.println(schema.isValid(data)); // true
-//
+
 //        Validator v = new Validator();
 //        MapSchema schema = v.map();
 //

@@ -15,14 +15,15 @@ public class NumberSchema extends BaseSchema {
     @Override
     protected boolean isValidRequired(Object o) {
         Predicate<Object> isInteger = p -> p instanceof Integer;
-        Predicate<Object> isPositive = p -> (Integer) p > 0;
+        Predicate<Object> isPositive = p -> p == null || (Integer) p > 0;
         Predicate<Object> isInRange = p -> (Integer) p >= lowerBoundOfRange && (Integer) p <= upperBoundOfRange;
 
-        Predicate<Object> result = isInteger;
+        Predicate<Object> result = p -> true;
 
-        if (!result.test(o)) {
+        if (!isInteger.test(o) && super.getCheckState() == 0) {
             return false;
         }
+
 
         if (positiveState == 1) {
             result = result.and(isPositive);
@@ -40,7 +41,7 @@ public class NumberSchema extends BaseSchema {
      */
     public NumberSchema positive() {
         positiveState = 1;
-        super.setRequiredState(1);
+        super.setCheckState(1);
         return this;
     }
 

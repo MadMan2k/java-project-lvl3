@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public abstract class BaseSchema {
     private int requiredState;
+    private int checkState;
 
     protected abstract boolean isValidRequired(Object o);
 
@@ -13,7 +14,7 @@ public abstract class BaseSchema {
      * @return result of check
      */
     public boolean isValid(Object o) {
-        if (requiredState == 0) {
+        if (requiredState == 0 && checkState == 0) {
             return true;
         } else {
             return isValidRequired(o);
