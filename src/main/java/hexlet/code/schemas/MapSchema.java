@@ -63,4 +63,12 @@ public class MapSchema extends BaseSchema {
         super.setRequiredState(1);
         shape = Map.copyOf(map);
     }
+
+    /**
+     * @return MapSchema
+     */
+    public MapSchema required() {
+        super.setRequiredState(1);
+        return this;
+    }
 }

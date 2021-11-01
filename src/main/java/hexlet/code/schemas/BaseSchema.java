@@ -45,13 +45,4 @@ public abstract class BaseSchema {
             return isValidRequired(o);
         }
     }
-
-    /**
-     * turn on required.
-     * @return BaseSchema
-     */
-    public BaseSchema required() {
-        requiredState = 1;
-        return this;
-    }
 }

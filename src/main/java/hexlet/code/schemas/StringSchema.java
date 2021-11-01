@@ -57,4 +57,11 @@ public class StringSchema extends BaseSchema {
         minLengthState = 1;
         return this;
     }
+    /**
+     * @return StringSchema
+     */
+    public StringSchema required() {
+        super.setRequiredState(1);
+        return this;
+    }
 }

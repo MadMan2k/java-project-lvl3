@@ -56,4 +56,11 @@ public class NumberSchema extends BaseSchema {
         upperBoundOfRange = secondInt;
         return this;
     }
+    /**
+     * @return NumberSchema
+     */
+    public NumberSchema required() {
+        super.setRequiredState(1);
+        return this;
+    }
 }
