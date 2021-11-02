@@ -118,6 +118,7 @@ public class ValidatorTest {
         stringSchema.required();
         stringSchema.minLength(SEVEN);
         assertThat(stringSchema.isValid("hexlet")).isFalse();
+        assertThat(stringSchema.isValid("hexlet")).isFalse();
 
         NumberSchema numberSchema = v.number();
         numberSchema.required();

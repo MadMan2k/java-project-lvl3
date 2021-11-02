@@ -31,7 +31,6 @@ public class StringSchema extends BaseSchema {
 
         if (minLengthState == 1) {
             result = result.and(isLongerThan);
-            minLengthState = 0;
         }
 
         return result.test(o);
