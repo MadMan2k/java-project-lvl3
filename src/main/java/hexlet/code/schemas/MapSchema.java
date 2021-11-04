@@ -56,7 +56,8 @@ public class MapSchema extends BaseSchema {
     }
 
     /**
-     * @param map
+     * @param map input map
+     * @return MapSchema
      */
     public MapSchema shape(Map<String, BaseSchema> map) {
         shapeState = 1;
