@@ -154,7 +154,7 @@ public class ValidatorTest {
 
         Map<String, Object> actual2 = new HashMap<>();
         actual2.put("name", "Kolya");
-        actual2.put("age", 100);
+        actual2.put("age", HUNDRED);
         assertThat(schema.isValid(actual2)).isTrue();
     }
 }
