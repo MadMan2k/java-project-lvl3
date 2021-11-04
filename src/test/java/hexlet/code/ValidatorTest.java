@@ -19,6 +19,7 @@ public class ValidatorTest {
     private static final int TEN = 10;
     private static final int ELEVEN = 11;
     private static final int FIFTEEN = 15;
+    private static final int HUNDRED = 100;
 
 
 
