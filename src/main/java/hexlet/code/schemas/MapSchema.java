@@ -4,10 +4,10 @@ import java.util.Map;
 import java.util.function.Predicate;
 
 public class MapSchema extends BaseSchema {
-    private static int sizeOfState;
-    private static int sizeOfTheMap;
-    private static int shapeState;
-    private static Map<String, BaseSchema> shape;
+    private int sizeOfState;
+    private int sizeOfTheMap;
+    private int shapeState;
+    private Map<String, BaseSchema> shape;
 
     /**
      * @param o input object
@@ -58,10 +58,11 @@ public class MapSchema extends BaseSchema {
     /**
      * @param map
      */
-    public void shape(Map<String, BaseSchema> map) {
+    public MapSchema shape(Map<String, BaseSchema> map) {
         shapeState = 1;
         super.setRequiredState(1);
         shape = Map.copyOf(map);
+        return this;
     }
 
     /**

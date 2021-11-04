@@ -3,10 +3,10 @@ package hexlet.code.schemas;
 import java.util.function.Predicate;
 
 public class NumberSchema extends BaseSchema {
-    private static int positiveState;
-    private static int rangeState;
-    private static int lowerBoundOfRange;
-    private static int upperBoundOfRange;
+    private int positiveState;
+    private int rangeState;
+    private int lowerBoundOfRange;
+    private int upperBoundOfRange;
 
     /**
      * @param o is input
@@ -61,6 +61,7 @@ public class NumberSchema extends BaseSchema {
      */
     public NumberSchema required() {
         super.setRequiredState(1);
+        super.setCheckState(0);
         return this;
     }
 }

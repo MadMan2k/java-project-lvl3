@@ -140,4 +140,20 @@ public class ValidatorTest {
         actual6.put("age", FIFTEEN);
         assertThat(mapSchema.isValid(actual6)).isFalse();
     }
+
+    @Test
+    void hexletTest2() {
+        Validator v = new Validator();
+
+        Map<String, BaseSchema> schemas = new HashMap<>();
+        schemas.put("name", v.string().required().contains("ya"));
+        schemas.put("age", v.number().positive());
+
+        MapSchema schema = v.map().sizeof(2).shape(schemas).required();
+
+        Map<String, Object> actual2 = new HashMap<>();
+        actual2.put("name", "Kolya");
+        actual2.put("age", 100);
+        assertThat(schema.isValid(actual2)).isTrue();
+    }
 }

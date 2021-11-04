@@ -3,10 +3,10 @@ package hexlet.code.schemas;
 import java.util.function.Predicate;
 
 public class StringSchema extends BaseSchema {
-    private static int containsState;
-    private static String contains;
-    private static int minLengthState;
-    private static int minLength;
+    private int containsState;
+    private String contains;
+    private int minLengthState;
+    private int minLength;
 
     /**
      * @return Boolean
@@ -31,6 +31,7 @@ public class StringSchema extends BaseSchema {
 
         if (minLengthState == 1) {
             result = result.and(isLongerThan);
+//            minLengthState = 0;
         }
 
         return result.test(o);
