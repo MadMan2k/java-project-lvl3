@@ -26,7 +26,8 @@ public class StringSchema extends BaseSchema {
 
         if (containsState == 1) {
             result = result.and(contain);
-            containsState = 0;
+//            containsState = 0;
+//            contains = "";
         }
 
         if (minLengthState == 1) {

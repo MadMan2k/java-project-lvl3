@@ -1,5 +1,12 @@
 package hexlet.code;
 
+import hexlet.code.schemas.BaseSchema;
+import hexlet.code.schemas.MapSchema;
+import hexlet.code.schemas.StringSchema;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class App {
     public static void main(String[] args) {
 //        Validator v = new Validator();
@@ -139,5 +146,28 @@ public class App {
 //        human4.put("age", -5);
 //        System.out.print("4 : false - ");
 //        System.out.println(mapSchema.isValid(human4)); // false
+//
+//        System.out.println();
+//        System.out.println("//////////////////////////////map schema 2//////////////////////////////////////////");
+//
+//        MapSchema mapSchema2 = v.map();
+//
+//        Map<String, BaseSchema> schemas2 = new HashMap<>();
+//        schemas2.put("name", v.string().required().contains("ya"));
+//        schemas2.put("age", v.number().positive());
+//
+//        mapSchema2.shape(schemas2).sizeof(2).required();
+//
+//        Map<String, Object> actual5 = new HashMap<>();
+//        actual5.put("name", "Valya");
+//        actual5.put("age", -5);
+//        System.out.print("1 : false - ");
+//        System.out.println(mapSchema2.isValid(actual5)); //.isFalse();
+//
+//        Map<String, Object> actual6 = new HashMap<>();
+//        actual6.put("name", "Ada");
+//        actual6.put("age", 15);
+//        System.out.print("2 : false - ");
+//        System.out.println(mapSchema2.isValid(actual6)); //.isFalse();
     }
 }
