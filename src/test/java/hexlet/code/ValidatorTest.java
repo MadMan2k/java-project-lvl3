@@ -13,6 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ValidatorTest {
     private static final int MINUS_TEN = -10;
+    private static final int MINUS_FIVE = -5;
     private static final int FOUR = 4;
     private static final int FIVE = 5;
     private static final int SEVEN = 7;
@@ -171,12 +172,12 @@ public class ValidatorTest {
 
         Map<String, Object> actual5 = new HashMap<>();
         actual5.put("name", "Valya");
-        actual5.put("age", -5);
+        actual5.put("age", MINUS_FIVE);
         assertThat(schema.isValid(actual5)).isFalse();
 
         Map<String, Object> actual6 = new HashMap<>();
         actual6.put("name", "Ada");
-        actual6.put("age", 15);
+        actual6.put("age", FIFTEEN);
         assertThat(schema.isValid(actual6)).isFalse();
     }
 }
