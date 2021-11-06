@@ -26,13 +26,13 @@ public class StringSchema extends BaseSchema {
 
         if (containsState == 1) {
             result = result.and(contain);
-//            containsState = 0;
-//            contains = "";
+//            containsState = 0; //should be commented
+//            contains = ""; //should be commented
         }
 
         if (minLengthState == 1) {
             result = result.and(isLongerThan);
-//            minLengthState = 0;
+//            minLengthState = 0; //should be commented
         }
 
         return result.test(o);
