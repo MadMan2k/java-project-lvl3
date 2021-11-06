@@ -27,7 +27,6 @@ public class MapSchema extends BaseSchema {
             return true;
         };
 
-
         Predicate<Object> result = isMap;
 
         if (!result.test(o)) {
@@ -39,19 +38,6 @@ public class MapSchema extends BaseSchema {
         }
 
         if (shapeState == 1) {
-//            for (Map.Entry<Object, Object> entry : ((Map<Object, Object>) o).entrySet()) {
-//
-//                Object key = entry.getKey();
-//                Object value = entry.getValue();
-//
-//                boolean bs = shape.get(key).isValid(value);
-//
-//                if (!bs) {
-//                    System.out.print("* we are in false * ");
-//                    return false;
-//                }
-//            }
-
             result = result.and(isShape);
         }
 
