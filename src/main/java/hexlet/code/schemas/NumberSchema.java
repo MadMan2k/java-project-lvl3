@@ -8,7 +8,6 @@ public class NumberSchema extends BaseSchema {
      */
     public NumberSchema positive() {
         Predicate<Object> isPositive = p -> p == null || Integer.parseInt(p.toString()) > 0;
-//        super.setCheckState(true);
         super.addPredicate(isPositive);
         return this;
     }
@@ -29,7 +28,6 @@ public class NumberSchema extends BaseSchema {
      */
     public NumberSchema required() {
         Predicate<Object> isInteger = p -> p instanceof Integer;
-//        super.setRequiredState(true);
         super.addPredicate(isInteger);
         return this;
     }

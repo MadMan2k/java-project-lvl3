@@ -28,7 +28,6 @@ public class StringSchema extends BaseSchema {
      */
     public StringSchema required() {
         Predicate<Object> notNullNorEmpty = p -> p != null && !p.toString().isEmpty();
-//        super.setRequiredState(true);
         super.addPredicate(notNullNorEmpty);
         return this;
     }
