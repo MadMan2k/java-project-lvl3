@@ -8,45 +8,37 @@ public abstract class BaseSchema {
     private boolean checkState;
 
     /**
-     * @param predicate is check condition
+     * @param predicate is a check condition
      */
     protected void addPredicate(Predicate<Object> predicate) {
         mainPredicate = mainPredicate.and(predicate);
     }
 
 //    /**
-//     * @return Aaaa
+//     * @param b is a required state flag
 //     */
-//    public int getCheckState() {
-//        return checkState;
+//    public void setRequiredState(boolean b) {
+//        this.requiredState = b;
+//    }
+
+//    /**
+//     * @param b is a check state flag
+//     */
+//    public void setCheckState(boolean b) {
+//        this.checkState = b;
 //    }
 
     /**
-     * @param b
-     */
-    public void setRequiredState(boolean b) {
-        this.requiredState = b;
-    }
-
-    /**
-     * @param b
-     */
-    public void setCheckState(boolean b) {
-        this.checkState = b;
-    }
-
-//    protected abstract boolean isValidRequired(Object o);
-
-    /**
-     * @param o input value
+     * @param o is an input value
      * @return result of check
      */
     public boolean isValid(Object o) {
-        if (!requiredState && !checkState) {
-            return true;
-        } else {
-            return mainPredicate.test(o);
-//            return isValidRequired(o);
-        }
+//        if (!requiredState && !checkState) {
+//            return true;
+//        } else {
+//            return mainPredicate.test(o);
+//        }
+
+        return mainPredicate.test(o);
     }
 }

@@ -15,7 +15,7 @@ public class MapSchema extends BaseSchema {
      */
     public MapSchema required() {
         Predicate<Object> isMap = p -> p instanceof Map;
-        super.setRequiredState(true);
+//        super.setRequiredState(true);
         super.addPredicate(isMap);
         return this;
     }
@@ -36,7 +36,7 @@ public class MapSchema extends BaseSchema {
      * @return MapSchema
      */
     public MapSchema shape(Map<String, BaseSchema> map) {
-        super.setRequiredState(true);
+//        super.setRequiredState(true);
 
         Predicate<Object> isShape = p -> {
             for (Map.Entry<Object, Object> entry
