@@ -1,46 +1,13 @@
-package hexlet.code.schemas;
-
-import java.util.function.Predicate;
-
-public class NumberSchema extends BaseSchema {
+//package hexlet.code.schemas;
+//
+//import java.util.function.Predicate;
+//
+//public class NumberSchema extends BaseSchema {
 //    private int positiveState;
 //    private int rangeState;
 //    private int lowerBoundOfRange;
 //    private int upperBoundOfRange;
-
-
-    /**
-     * @return NumberSchema
-     */
-    public NumberSchema positive() {
-//        Predicate<Object> isPositive = p -> p == null || (Integer) p > 0;
-        Predicate<Object> isPositive = p -> p == null || Integer.parseInt(p.toString()) > 0;
-        super.setCheckState(true);
-        super.addPredicate(isPositive);
-        return this;
-    }
-
-    /**
-     * @param firstInt is the lowest number required
-     * @param secondInt is the largest number required
-     * @return NumberSchema
-     */
-    public NumberSchema range(int firstInt, int secondInt) {
-        Predicate<Object> isInRange = p -> (Integer) p >= firstInt && (Integer) p <= secondInt;
-        super.addPredicate(isInRange);
-        return this;
-    }
-
-    /**
-     * @return NumberSchema
-     */
-    public NumberSchema required() {
-        Predicate<Object> isInteger = p -> p instanceof Integer;
-        super.setRequiredState(true);
-        super.addPredicate(isInteger);
-        return this;
-    }
-
+//
 //    /**
 //     * @param o is input
 //     * @return check result
@@ -68,7 +35,7 @@ public class NumberSchema extends BaseSchema {
 //
 //        return result.test(o);
 //    }
-
+//
 //    /**
 //     * @return NumberSchema
 //     */
@@ -97,4 +64,4 @@ public class NumberSchema extends BaseSchema {
 //        super.setCheckState(0);
 //        return this;
 //    }
-}
+//}
