@@ -5,6 +5,7 @@ import hexlet.code.schemas.MapSchema;
 import hexlet.code.schemas.NumberSchema;
 import hexlet.code.schemas.StringSchema;
 
+// Validator
 public class Validator {
     /**
      * @return StringSchema
